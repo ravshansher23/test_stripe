@@ -9,4 +9,4 @@ class Item(models.Model):
     key = models.CharField(max_length=45, verbose_name='API ID', unique=True, null=False)
 
     def __str__(self) -> str:
-        return f"{self.name} - {self.price}"
+        return self.name

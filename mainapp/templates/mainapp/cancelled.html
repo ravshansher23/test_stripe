@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Checkout canceled</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <section>
-    <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
-    <a href="{% url 'mainapp:main_page' %}">Catalog page</a>
-  </section>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+<title>Checkout canceled</title>
+{% endblock title %}
+{% block content %}
+<section class="center_section">
+  <main class="px-3 check">
+    <h1>Forgot to add something to your cart? Shop around then come back to pay!</h1>
+    <p class="lead"><img src="{% static 'img/multiply.png' %}" style="height: 50vh;" alt=""></p>
+    <p class="lead">
+      <a href="{% url 'mainapp:main_page' %}" class="btn btn-lg btn-secondary fw-bold border-blue bg-blue">Catalog
+        page</a>
+    </p>
+  </main>
+</section>
+{% endblock content %}

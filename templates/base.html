@@ -1,26 +1,19 @@
 {% load static %}
-
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Stripe</title>
+    {% block title %}
 
+    {% endblock title %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    {% block js %}
-    {% endblock js %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
 </head>
 
-<body class="text-bg-light">
-    
+<body>
     {% block content %}
 
     {% endblock content %}
-
-
-
 </body>
+
 </html>

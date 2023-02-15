@@ -1,31 +1,22 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Buy cool new product</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <script src="https://js.stripe.com/v3/"></script>
-  </head>
-  <body>
-    
-    <section>
-      <div class="container">
-      
-      <div class="product">
-        <div class="description">
-          <h3>{{ items.name }}</h3>
-          <h5>{{ items.description }}</h5>
-          <h5>{{ items.price }}</h5>
-        </div>
-      </div>
-      
-    </div>
+{% block title %}
+<title>Buy {{ items.name }}</title>
+<script src="https://js.stripe.com/v3/"></script>
+{% endblock title %}
+{% block content %}
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">{{ items.name }}</h1>
+      <p class="lead text-muted">{{ items.description }}</p>
+      <p>{{ items.price }}$</p>
       <form action="{% url 'mainapp:buy' pk=items.pk %}" method="POST">
         {% csrf_token %}
         {{ form }}
-        <button type="submit" id="checkout-button">Checkout</button>
+        <button type="submit" class="btn btn-primary my-2" id="checkout-button">Checkout</button>
       </form>
-    </section>
-    
-  </body>
-</html>
+    </div>
+  </div>
+</section>
+{% endblock content %}
